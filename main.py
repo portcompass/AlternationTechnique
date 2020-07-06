@@ -4,7 +4,8 @@ import turtle
 screen = turtle.Screen()
 screen.setup(400, 400)
 
-# Everytime you click the screen, it will change to either RED or GREEN via ALTERNATION.
+# Everytime you click the square screen "canvas" area, 
+# that square will change color to either RED or GREEN via ALTERNATION.
 
 # This variable (storage box) contains a number that we call the "decision number".
 # This number is "incremented" (increased by exactly one) each time the user clicks on the screen.
@@ -34,23 +35,25 @@ def respond_to_user_click_on_screen(x, y):
   global CURRENT_COLOR_NUMBER   # See my comment about this just a couple of lines below...
   CURRENT_COLOR_NUMBER = CURRENT_COLOR_NUMBER + 1
   paint_screen_based_on_current_color_number()
-  # OK, so this function works but.. what is this word "global" doing at the top of the function?
+  # OK, so this function works but.. 
+  # what is this word "global" doing at the top of the function?
   # This is a complex topic that we'll talk about at length later.
   # For now, just think this way:  if your function wants to CHANGE a variable that was created
   # "outside" of itself, then it needs to ask for permission to use that "global variable".
   # In this program, CURRENT_COLOR_NUMBER is a "global variable" because it was created
   # "outside" of the scope of any particular function.
-  # So this function, because it wants the ability to change its value, has to ask for permission,
+  # So this function, because it wants the ability to change its value,
+  # has to ask for permission,
   # so I had to write:   global CURRENT_COLOR_NUMBER
   # as the first line of this function.
   
 
-###### Now that we've setup the screen and gave birth to Tina and created the functions we'll use,
+###### Now that we've setup the screen and 
+###### we've given birth to Tina and we've defined the functions that we need,
 ###### we're ready to start the actual program:
+
+print("CLICK anywhere on the colored square to ALTERNATE the screen color.")
 
 paint_screen_based_on_current_color_number()
 screen.listen()
 screen.onclick(respond_to_user_click_on_screen)
-
-print("CLICK anywhere on the screen to ALTERNATE the screen color.")
-
