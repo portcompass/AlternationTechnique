@@ -12,7 +12,7 @@ screen.setup(400, 400)
 # the user clicks on the screen.
 # The "paint_screen_based_on_current_color_number" function will use this 
 # to figure out which color to use!
-CURRENT_COLOR_NUMBER = 1
+CURRENT_COLOR_NUMBER = 1 
 
 
 
@@ -26,22 +26,29 @@ def paint_screen_based_on_current_color_number():
   # Well, the easiest way: divide by 2 and then look at the REMAINDER.
   # In python, you compute the "division remainder" of two whole numbers 
   # by using '%'
+
+  # The remainder will be either 0, 1, or 2
   if (CURRENT_COLOR_NUMBER % 2) == 0:
     # In this case, the remainder was 0, so the number is EVEN.
     color_to_change_to = 'RED'
   else: 
-    # In this case, the remainder was 1, so the number is ODD.
     color_to_change_to = 'GREEN'
   
   # So we have decided what color to change the screen to.  So... let's DO IT!
   screen.bgcolor(color_to_change_to)
-  
+#
+#^^^^^^ END OF THE paint_screen_based_on_current_color_number FUNCTION.
+
+
+
 
 
 def respond_to_user_click_on_screen(x, y):
   global CURRENT_COLOR_NUMBER   
   # See my comment about this word "global" just a couple of lines below...
   CURRENT_COLOR_NUMBER = CURRENT_COLOR_NUMBER + 1
+  print("New value of the global is:")
+  print(CURRENT_COLOR_NUMBER)
   paint_screen_based_on_current_color_number()
   # OK, so this function works but.. 
   # what is this word "global" doing at the top of the function?
@@ -57,9 +64,13 @@ def respond_to_user_click_on_screen(x, y):
   # has to ask for permission,
   # so I had to write:   global CURRENT_COLOR_NUMBER
   # as the first line of this function.
-  
 
-###### Now that we've setup the screen and 
+
+
+
+
+
+###### Now that we've set up the screen and 
 ###### we've given birth to Tina and we've defined the functions that we need,
 ###### we're ready to start the actual program:
 
